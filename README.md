@@ -1,22 +1,70 @@
-# Taskmanager
+# Getting Started with Create React App
 
-1. How did you handle inline editing in the table?
-Inline editing was implemented using the editor configuration provided by Tabulator.js. For the Title and Description fields, the "input" editor was used to allow direct text editing. The Status field was configured with a "select" editor, enabling users to choose values from a predefined dropdown list ("To Do," "In Progress," "Done"). This configuration ensures easy and user-friendly inline editing.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-2. Explain how you fetched and processed the data from the dummy API.
-Data was fetched using axios in a useEffect hook, ensuring the request was made only when the component mounted. The API response contained tasks, but only the first 20 were processed using slice(0, 20). Each task was mapped to include title, a sample description, and the status field derived from the completed property in the API (true → "Done", false → "To Do"). This formatted data was stored in the tasks state using the useState hook.
+## Available Scripts
 
-3. What approach did you use to filter tasks based on status?
-The filtering logic was implemented using the filter function on the tasks array. A filterStatus state variable was introduced to capture the user's selection from the dropdown. If filterStatus was empty, all tasks were displayed. Otherwise, only tasks matching the selected status were shown. This approach dynamically updates the displayed data without altering the original task list.
+In the project directory, you can run:
 
-4.How did you manage the state of tasks when adding or editing them?
-For adding tasks, a new task object was created based on the newTask state. The new task was assigned a unique ID by incrementing the current tasks length. The task was then appended to the tasks state using the spread operator.
-For editing tasks, Tabulator.js handles inline updates directly on the data object. Any change in a cell is automatically reflected in the underlying task data managed by the tasks state.
-This reactive approach ensures the UI and state remain synchronized.
+### `npm start`
 
-5.What challenges did you face during development, and how did you overcome them?
-Challenge: Integrating Tabulator.js with React required understanding how to bind state changes effectively to the table.
-Solution: Used the ReactTabulator component, which provides a seamless interface for React. Also, ensured that data and columns props were linked to state variables, allowing automatic re-rendering on state updates.
-Challenge: Managing task filtering and inline editing simultaneously without performance issues.
-Solution: Used optimized state management and conditional rendering (filter function) to handle filtering dynamically without modifying the main dataset.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
